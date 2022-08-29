@@ -40,7 +40,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.loginController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="282.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="screen" maxHeight="-1.0" maxWidth="-1.0" prefHeight="282.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
       <children>
             <Button fx:id="logButton" layoutX="36.0" layoutY="231.0" mnemonicParsing="false" onAction="#submit" text="Login" />
             <Text layoutX="36.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the CRM software. Please login to your account" wrappingWidth="330.9367370605469" />

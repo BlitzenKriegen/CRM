@@ -8,17 +8,23 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
+    private Parent root;
+    private Stage appStage;
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-			primaryStage.setTitle("CRM Software.");
-			primaryStage.setScene(new Scene(root,400,300));
-			primaryStage.show();
+			root = FXMLLoader.load(getClass().getResource("login.fxml"));
+			appStage = new Stage();
+			appStage.setTitle("CRM Software");
+			appStage.setScene(new Scene(root,400,300));
+			appStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+
 
 	public static void main(String[] args) {
 		launch(args);
