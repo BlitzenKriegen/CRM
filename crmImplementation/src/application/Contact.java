@@ -9,14 +9,14 @@ package application;
  * @param4 contactPhoneNum: Holds the phone number of the client
  * @param5 contactTasks: Holds the tasks associated with the contact.
  */
-public class contact {
+public class Contact {
     private String contactName;
     private String contactEmail;
     private String contactAddress;
     private String contactPhoneNum;
     private task contactTasks[];
 
-    public contact() {
+    public Contact() {
         this.contactName = null;
         this.contactEmail = null;
         this.contactAddress = null;
@@ -24,13 +24,12 @@ public class contact {
         this.contactTasks = null;
     }
 
-    public contact(String name, String email, String address, String phone) {
+    public Contact(String name, String email, String address, String phone) {
         setContactName(name);
         setContactEmail(email);
         setContactAddress(address);
         setContactPhoneNum(phone);
     }
-
 
     public String getContactName() {
         return contactName;
@@ -70,5 +69,13 @@ public class contact {
 
     public void setContactTasks(task contactTasks[]) {
         this.contactTasks = contactTasks;
+    }
+
+    public void setBasic(String[] parts) {
+        int len = parts.length;
+        this.contactName = parts[0];
+        this.contactEmail = parts[1];
+        this.contactAddress = parts[2];
+        this.contactPhoneNum = parts[3];
     }
 }

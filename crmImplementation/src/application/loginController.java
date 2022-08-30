@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +19,8 @@ public class loginController {
     public Button logButton;
     @FXML
     public AnchorPane screen;
+
+    public SceneController switcher = new SceneController();
 
     String username;
     String password;
@@ -46,11 +47,10 @@ public class loginController {
 
             if(userFound(fileRead,username)) {
                 if(verifyPass(fileRead,password)) {
-                    AnchorPane root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
-                    screen.getChildren().setAll(root);
+                    switcher.changeFile(event,"MainPage.fxml");
                 }
                 else {
-                    //fail
+                    switcher.changeFile(event,"login.fxml");
                 }
             }
             else {
@@ -63,9 +63,6 @@ public class loginController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    public void loadNext() throws IOException {
     }
 
     /**

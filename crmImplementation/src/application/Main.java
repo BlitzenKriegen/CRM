@@ -17,7 +17,7 @@ public class Main extends Application {
 			root = FXMLLoader.load(getClass().getResource("login.fxml"));
 			appStage = new Stage();
 			appStage.setTitle("CRM Software");
-			appStage.setScene(new Scene(root,400,300));
+			appStage.setScene(new Scene(root,600,350));
 			appStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
