@@ -9,11 +9,9 @@ package application;
  */
 public class task {
     private String content;
-    private String dateCreated;
 
     public task() {
         this.content = null;
-        this.dateCreated = null;
     }
 
     public task(String con) {
@@ -26,13 +24,5 @@ public class task {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
     }
 }

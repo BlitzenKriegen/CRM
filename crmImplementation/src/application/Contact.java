@@ -1,4 +1,7 @@
 package application;
+
+import java.util.Scanner;
+
 /**
  * Below is the contact class implementation for the CRM prototype.
  * @author Kiril
@@ -71,11 +74,29 @@ public class Contact {
         this.contactTasks = contactTasks;
     }
 
-    public void setBasic(String[] parts) {
-        int len = parts.length;
-        this.contactName = parts[0];
-        this.contactEmail = parts[1];
-        this.contactAddress = parts[2];
-        this.contactPhoneNum = parts[3];
+    public Contact setBasic(String[] parts, Contact con) {
+        con.setContactName(parts[0]);
+        con.setContactEmail(parts[1]);
+        con.setContactAddress(parts[2]);
+        con.setContactPhoneNum(parts[3]);
+        return con;
+    }
+
+    public Contact grabContact(Scanner readFile) {
+        Contact data = new Contact();
+        String input;
+
+        if(readFile.hasNext()) {
+            input = readFile.nextLine();
+            String[] parts = input.split("[|]", 4);
+            data = setBasic(parts, data);
+            data.setContactTasks(grabTasks(readFile));
+        }
+        return data;
+    }
+
+    private task[] grabTasks(Scanner readFile) {
+
+        return null;
     }
 }
