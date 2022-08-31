@@ -96,7 +96,7 @@ public class Contact {
     }
 
     private task[] grabTasks(Scanner readFile) {
-
+        task[] grabTasks
         return null;
     }
 }
