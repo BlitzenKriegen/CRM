@@ -49,14 +49,10 @@ public class ConCreate {
      * @throws IOException: Needed because of the file changing within the method called.
      */
     public void createContact(ActionEvent event) throws IOException {
-        String line = "\n" + name.getText() + "|" + email.getText() + "|"
+        String line = "\n$\n" + name.getText() + "|" + email.getText() + "|"
                     + phoneNum.getText() + "|" + address.getText() + "\n$";
         //taken from https://stackoverflow.com/questions/1625234/how-to-append-text-to-an-existing-file-in-java
         Files.write(Paths.get("CRMContacts"), line.getBytes(), StandardOpenOption.APPEND);
         switcher.changeFile(event,"MainPage.fxml");
-    }
-
-    public void submit(ActionEvent event) {
-
     }
 }

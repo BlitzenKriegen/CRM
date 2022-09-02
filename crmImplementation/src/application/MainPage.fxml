@@ -17,11 +17,11 @@
                   <TableColumn fx:id="phoneNum" prefWidth="167.20001220703125" text="Phone #" />
                </columns>
             </TableView>
-            <Button layoutX="28.0" layoutY="135.0" mnemonicParsing="false" text="Select" />
-            <Button layoutX="28.0" layoutY="165.0" mnemonicParsing="false" text="Select" />
-            <Button layoutX="28.0" layoutY="195.0" mnemonicParsing="false" text="Select" />
-            <Button layoutX="28.0" layoutY="225.0" mnemonicParsing="false" text="Select" />
-            <Button layoutX="28.0" layoutY="255.0" mnemonicParsing="false" text="Select" />
+            <Button fx:id="sel1" layoutX="28.0" layoutY="135.0" mnemonicParsing="false" onAction="#conSelect" text="Select" />
+            <Button fx:id="sel2" layoutX="28.0" layoutY="165.0" mnemonicParsing="false" onAction="#conSelect" text="Select" />
+            <Button fx:id="sel3" layoutX="28.0" layoutY="195.0" mnemonicParsing="false" onAction="#conSelect" text="Select" />
+            <Button fx:id="sel4" layoutX="28.0" layoutY="225.0" mnemonicParsing="false" onAction="#conSelect" text="Select" />
+            <Button fx:id="sel5" layoutX="28.0" layoutY="255.0" mnemonicParsing="false" onAction="#conSelect" text="Select" />
             <Button fx:id="exit" layoutX="28.0" layoutY="40.0" mnemonicParsing="false" onAction="#logout" text="Log Out" />
             <Button fx:id="conCreate" layoutX="431.0" layoutY="40.0" mnemonicParsing="false" onAction="#conCreation" prefHeight="26.0" prefWidth="125.0" text="Create Contact" />
          </children>

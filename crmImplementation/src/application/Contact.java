@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,7 +19,7 @@ public class Contact {
     private String contactEmail;
     private String contactAddress;
     private String contactPhoneNum;
-    private task contactTasks[];
+    private List<String> contactTasks;
 
     public Contact() {
         this.contactName = null;
@@ -66,11 +68,11 @@ public class Contact {
         this.contactPhoneNum = contactPhoneNum;
     }
 
-    public task[] getContactTasks() {
+    public List<String> getContactTasks() {
         return contactTasks;
     }
 
-    public void setContactTasks(task contactTasks[]) {
+    public void setContactTasks(List<String> contactTasks) {
         this.contactTasks = contactTasks;
     }
 
@@ -95,8 +97,19 @@ public class Contact {
         return data;
     }
 
-    private task[] grabTasks(Scanner readFile) {
-        task[] grabTasks
-        return null;
+    private List<String> grabTasks(Scanner readFile) {
+        List<String> tasks = new ArrayList<String>();
+        String line = "";
+
+        if(readFile.hasNext()) {
+            while(!line.contains("$") && readFile.hasNext()) {
+                line = readFile.nextLine();
+                if(!line.contains("$")) {
+                    tasks.add(line);
+                }
+            }
+        }
+
+        return tasks;
     }
 }
