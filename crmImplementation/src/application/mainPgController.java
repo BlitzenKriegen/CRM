@@ -26,6 +26,8 @@ public class mainPgController implements Initializable{
     @FXML
     private Button exit;
     @FXML
+    private Button delButton;
+    @FXML
     private Button sel1;
     @FXML
     private Button sel2;
@@ -48,12 +50,20 @@ public class mainPgController implements Initializable{
 
     SceneController switcher = new SceneController();
 
+    /**
+     * The function switches to the contact page of the selected contact.
+     * NOTE: it only goes to a dummy page for the prototype.
+     * @param event: button being pressed.
+     * @throws IOException
+     */
     public void conSelect(ActionEvent event) throws IOException {
         switcher.changeFile(event,"ContactsPage.fxml");
     }
 
 
-
+    /**
+     * Initializes the table with the information from the "database".
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         name.setCellValueFactory(new PropertyValueFactory<Contact,String>("contactName"));
@@ -64,12 +74,22 @@ public class mainPgController implements Initializable{
         conList.autosize();
     }
 
+    /**
+     * Collects the data within the "database" and consolidates it into an object. Then,
+     * it passes the object back to the caller.
+     * @return
+     */
     private ObservableList<Contact> getCon() {
         ObservableList<Contact> lst = FXCollections.observableArrayList(tableData());
 
         return lst;
     }
 
+    /**
+     * tableData goes through the "database" and processes the data into a datastructure.
+     * Once EOF is reached, it passes this object back to the caller.
+     * @return
+     */
     public List<Contact> tableData() {
         List<Contact> tst = new ArrayList<Contact>();
         FileInputStream loginRead;
@@ -88,11 +108,35 @@ public class mainPgController implements Initializable{
         return tst;
     }
 
+    /**
+     * Changes the screen to the FXML file for contact creation.
+     * @param event: Button being pressed.
+     * @throws IOException
+     */
     @FXML
     public void conCreation(ActionEvent event) throws IOException {
         switcher.changeFile(event,"ContactCreation.fxml");
     }
 
+    /**
+     * Produces a pop-up to confirm deletion and then deletes the selected column
+     * from the table.
+     * NOTE: the pop-up is not working properly. At the moment, the function will
+     * delete the selected item either way.
+     * @param event: Button being pressed.
+     * @throws IOException
+     */
+    @FXML
+    public void deleteContact(ActionEvent event) throws IOException {
+        switcher.confirmWindow("Are you sure you want to delete this contact?");
+        conList.getItems().removeAll(conList.getSelectionModel().getSelectedItem());
+    }
+
+    /**
+     * Changes the screen to the FXML file for login.
+     * @param event: Button being pressed.
+     * @throws IOException
+     */
     @FXML
     public void logout(ActionEvent event) throws IOException {
         switcher.changeFile(event,"login.fxml");

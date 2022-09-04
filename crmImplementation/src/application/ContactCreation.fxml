@@ -14,8 +14,8 @@
             <TextField fx:id="email" layoutX="14.0" layoutY="75.0" />
             <TextField fx:id="phoneNum" layoutX="14.0" layoutY="125.0" />
             <TextField fx:id="address" layoutX="14.0" layoutY="175.0" />
-            <Button fx:id="exit" layoutX="14.0" layoutY="227.0" mnemonicParsing="false" onAction="#exitCreation" text="Cancel" />
-            <Button fx:id="createTask" layoutX="112.0" layoutY="227.0" mnemonicParsing="false" onAction="#createContact" text="Create" />
+            <Button fx:id="exit" layoutX="14.0" layoutY="227.0" mnemonicParsing="false" onAction="#exitCreation" text="E̲xit" />
+            <Button fx:id="createTask" layoutX="112.0" layoutY="227.0" mnemonicParsing="false" onAction="#createContact" text="C̲reate" />
             <Text layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Name" />
             <Text layoutX="14.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Email" />
             <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Phone Number" />

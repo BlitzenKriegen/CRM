@@ -13,9 +13,9 @@
       <AnchorPane prefHeight="418.0" prefWidth="600.0">
          <children>
             <Button layoutX="482.0" layoutY="335.0" mnemonicParsing="false" onAction="#exitPage" text="Back To Main" />
-            <TableView layoutX="142.0" layoutY="100.0" prefHeight="200.0" prefWidth="419.0">
+            <TableView fx:id="taskList" layoutX="142.0" layoutY="100.0" prefHeight="200.0" prefWidth="419.0">
               <columns>
-                <TableColumn prefWidth="418.40001220703124" text="History" />
+                <TableColumn fx:id="tasks" prefWidth="418.40001220703124" text="History" />
               </columns>
             </TableView>
             <Button layoutX="500.0" layoutY="42.0" mnemonicParsing="false" onAction="#createTask" text="Create Task" />

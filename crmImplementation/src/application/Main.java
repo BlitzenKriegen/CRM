@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("login.fxml"));
 			appStage = new Stage();
 			appStage.setTitle("CRM Software");
 			appStage.setScene(new Scene(root,600,350));

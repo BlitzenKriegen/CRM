@@ -47,14 +47,16 @@ public class loginController {
 
             if(userFound(fileRead,username)) {
                 if(verifyPass(fileRead,password)) {
-                    switcher.changeFile(event,"MainPage.fxml");
+                    switcher.changeFile(event, "MainPage.fxml");
                 }
                 else {
-                    switcher.changeFile(event,"login.fxml");
+                    switcher.errorMsg("Username or Password may be wrong. Please try Again");
+                    switcher.changeFile(event, "login.fxml");
                 }
             }
             else {
-            System.out.println("no user found.");
+                switcher.errorMsg("Username or Password may be wrong. Please try Again");
+                switcher.changeFile(event, "login.fxml");
             }
             fileRead.close();
             loginRead.close();

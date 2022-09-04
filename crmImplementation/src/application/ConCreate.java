@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,10 +50,34 @@ public class ConCreate {
      * @throws IOException: Needed because of the file changing within the method called.
      */
     public void createContact(ActionEvent event) throws IOException {
-        String line = "\n$\n" + name.getText() + "|" + email.getText() + "|"
+        boolean val = isValid(email.getText());
+
+        if(val) {
+            String line = "\n" + name.getText() + "|" + email.getText() + "|"
                     + phoneNum.getText() + "|" + address.getText() + "\n$";
-        //taken from https://stackoverflow.com/questions/1625234/how-to-append-text-to-an-existing-file-in-java
-        Files.write(Paths.get("CRMContacts"), line.getBytes(), StandardOpenOption.APPEND);
-        switcher.changeFile(event,"MainPage.fxml");
+            //taken from https://stackoverflow.com/questions/1625234/how-to-append-text-to-an-existing-file-in-java
+            Files.write(Paths.get("CRMContacts"), line.getBytes(), StandardOpenOption.APPEND);
+            switcher.changeFile(event,"MainPage.fxml");
+        }
+        else {
+            switcher.errorMsg("Invalid email");
+            email.clear();
+        }
+    }
+
+    /**
+     * Checks if a given email is valid by pattern matching a given input.
+     * If valid, returns true. Otherwise, false.
+     * Taken from here: https://www.educba.com/java-email-validation/
+     * @param email
+     * @return
+     */
+    public static boolean isValid(String email)
+    {
+        String regex = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        if (email == null)
+            return false;
+        return pattern.matcher(email).matches();
     }
 }
